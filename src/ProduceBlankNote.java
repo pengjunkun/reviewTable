@@ -46,6 +46,7 @@ public class ProduceBlankNote
 					"./records/" + thisYear + "/" + currentDateString + ".enex";
 			write(fileName, String.format(outPutTemplate, currentDateString,
 					currentMonthString));
+			System.out.println("print:"+fileName);
 
 			startCal.add(Calendar.DAY_OF_MONTH, 1);
 		}
@@ -57,6 +58,11 @@ public class ProduceBlankNote
 
 		try
 		{
+			File f=new File(fileName);
+			if (!f.getParentFile().exists())
+				f.getParentFile().mkdirs();
+			if (!f.exists())
+				f.createNewFile();
 			writer = new BufferedWriter(
 					new OutputStreamWriter(new FileOutputStream(fileName),
 							"utf-8"));
@@ -64,6 +70,7 @@ public class ProduceBlankNote
 		} catch (IOException ex)
 		{
 			// report
+			System.out.print("wrong:"+ ex.getMessage());
 		} finally
 		{
 			try

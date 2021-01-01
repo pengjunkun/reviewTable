@@ -186,12 +186,7 @@ public class ReviewEvernote
 
 	private static String getEvernoteUrl(Date date)
 	{
-		if (date.getYear() == 118)
-		{
 			return urls.get(evernoteSimpleDateFormat.format(date));
-		}
-		//Todo: this line is just for fiting for 2017 old enex style, will remove it next year
-		return urls.get(evernoteSimpleDateFormat2017.format(date));
 	}
 
 	private static void log(String s)
@@ -205,6 +200,11 @@ public class ReviewEvernote
 
 		try
 		{
+			File f=new File(fileName);
+			if (!f.getParentFile().exists())
+				f.getParentFile().mkdirs();
+			if (!f.exists())
+				f.createNewFile();
 			writer = new BufferedWriter(
 					new OutputStreamWriter(new FileOutputStream(fileName),
 							"utf-8"));
