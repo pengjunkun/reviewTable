@@ -28,7 +28,8 @@ public class ReviewEvernote
 			"MM.dd");
 	private static SimpleDateFormat monthSimpleDateFormat = new SimpleDateFormat(
 			"yyyy-MM-");
-	private static int[] minusDays = { -1, -3, -7, -17, -35 };
+	private static int[] minusDays = { -3, -10, -35 };
+//	private static int[] minusDays = { -1, -3, -7, -17, -35 };
 	private static Map<String, String> urls = new HashMap<>();
 	private static String outPutString =
 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
